@@ -1,0 +1,484 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Егор - Персональный сайт</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* Базовые стили */
+        body {
+            font-family: 'Arial', sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            color: #333;
+            background-color: #f5f5f5;
+        }
+
+        .container {
+            width: 85%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+
+        /* Шапка */
+        header {
+            background: linear-gradient(135deg, #0078d7, #004e8c);
+            color: white;
+            text-align: center;
+            padding: 80px 0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('https://sun133-1.userapi.com/impg/dlQHDXUBJsNQ_-e9OpaECh2kwurmd6uuS-sifQ/-HzXJq723Zk.jpg?size=1620x2160&quality=95&sign=b8cb7bd33da9985f88d600429ecc2996&type=album') center/cover;
+            opacity: 0.2;
+            z-index: 0;
+        }
+
+        header .container {
+            position: relative;
+            z-index: 1;
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 3em;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+
+        header p {
+            margin: 15px 0 0;
+            font-size: 1.4em;
+            font-weight: 300;
+        }
+
+        /* Навигация */
+        nav {
+            background: #333;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        nav ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+        }
+
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            padding: 18px 25px;
+            display: block;
+            transition: all 0.3s;
+            font-weight: 500;
+        }
+
+        nav ul li a:hover {
+            background: #0078d7;
+            transform: translateY(-3px);
+        }
+
+        /* Секции */
+        .section {
+            padding: 80px 0;
+        }
+
+        .section h2 {
+            text-align: center;
+            margin-bottom: 50px;
+            font-size: 2.5em;
+            color: #0078d7;
+            position: relative;
+        }
+
+        .section h2::after {
+            content: '';
+            display: block;
+            width: 80px;
+            height: 4px;
+            background: #0078d7;
+            margin: 15px auto 0;
+            border-radius: 2px;
+        }
+
+        /* Обо мне */
+        .about-content {
+            display: flex;
+            align-items: center;
+            gap: 40px;
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .profile-photo {
+            width: 250px;
+            height: 250px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 5px solid #0078d7;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s;
+        }
+
+        .profile-photo:hover {
+            transform: scale(1.05);
+        }
+
+        .about-text {
+            flex: 1;
+        }
+
+        .about-text p {
+            font-size: 1.1em;
+            line-height: 1.8;
+            margin-bottom: 15px;
+        }
+
+        /* Навыки */
+        .skills-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 30px;
+        }
+
+        .skill {
+            text-align: center;
+            flex: 1;
+            min-width: 250px;
+            padding: 30px 20px;
+            border-radius: 10px;
+            background: white;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s;
+        }
+
+        .skill:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+        }
+
+        .skill i {
+            font-size: 3.5em;
+            color: #0078d7;
+            margin-bottom: 20px;
+        }
+
+        .skill h3 {
+            margin: 0 0 10px;
+            font-size: 1.5em;
+        }
+
+        .skill p {
+            color: #666;
+            margin: 0;
+        }
+
+        /* Хобби */
+        .hobbies {
+            background: #f0f8ff;
+        }
+
+        .hobbies-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 30px;
+        }
+
+        .hobby {
+            background: white;
+            padding: 25px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            width: 300px;
+            text-align: center;
+            transition: all 0.3s;
+        }
+
+        .hobby:hover {
+            transform: scale(1.05);
+        }
+
+        .hobby i {
+            font-size: 3em;
+            color: #0078d7;
+            margin-bottom: 15px;
+        }
+
+        /* Контакты */
+        .contact {
+            background: linear-gradient(135deg, #f5f5f5, #e0e0e0);
+        }
+
+        .contact-info {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .contact-info p {
+            margin: 15px 0;
+            font-size: 1.2em;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .contact-info i {
+            margin-right: 15px;
+            color: #0078d7;
+            font-size: 1.3em;
+            width: 30px;
+        }
+
+        .social-links {
+            margin: 30px 0;
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        .social-links a {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: #0078d7;
+            color: white;
+            font-size: 1.5em;
+            transition: all 0.3s;
+            text-decoration: none;
+        }
+
+        .social-links a:hover {
+            transform: translateY(-5px) scale(1.1);
+            background: #005fa3;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .contact-form {
+            max-width: 600px;
+            margin: 0 auto;
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .contact-form input,
+        .contact-form textarea {
+            width: 100%;
+            padding: 12px 15px;
+            margin-bottom: 20px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 1em;
+            transition: border 0.3s;
+        }
+
+        .contact-form input:focus,
+        .contact-form textarea:focus {
+            border-color: #0078d7;
+            outline: none;
+        }
+
+        .contact-form textarea {
+            height: 150px;
+            resize: vertical;
+        }
+
+        .contact-form button {
+            background: #0078d7;
+            color: white;
+            border: none;
+            padding: 15px 30px;
+            font-size: 1.1em;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: all 0.3s;
+            width: 100%;
+        }
+
+        .contact-form button:hover {
+            background: #005fa3;
+            transform: translateY(-3px);
+            box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Подвал */
+        footer {
+            background: #333;
+            color: white;
+            text-align: center;
+            padding: 30px 0;
+        }
+
+        footer p {
+            margin: 0;
+        }
+
+        /* Анимации */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .section {
+            animation: fadeIn 0.8s ease-out;
+        }
+
+        /* Адаптивность */
+        @media (max-width: 768px) {
+            .about-content {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            nav ul {
+                flex-direction: column;
+            }
+
+            .profile-photo {
+                width: 200px;
+                height: 200px;
+                margin: 0 auto 20px;
+            }
+
+            header h1 {
+                font-size: 2.2em;
+            }
+
+            header p {
+                font-size: 1.1em;
+            }
+
+            .section {
+                padding: 50px 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>Егор</h1>
+            <p>Персональный сайт</p>
+        </div>
+    </header>
+
+    <nav>
+        <ul>
+            <li><a href="#about">Обо мне</a></li>
+            <li><a href="#skills">Навыки</a></li>
+            <li><a href="#hobbies">Хобби</a></li>
+            <li><a href="#contact">Контакты</a></li>
+        </ul>
+    </nav>
+
+    <section id="about" class="section">
+        <div class="container">
+            <h2>Обо мне</h2>
+            <div class="about-content">
+                <img src="https://sun133-1.userapi.com/impg/dlQHDXUBJsNQ_-e9OpaECh2kwurmd6uuS-sifQ/-HzXJq723Zk.jpg?size=1620x2160&quality=95&sign=b8cb7bd33da9985f88d600429ecc2996&type=album" alt="Фото Егора" class="profile-photo">
+                <div class="about-text">
+                    <p>Привет! Меня зовут Егор. Я безработный, но активно ищу новые возможности для самореализации.</p>
+                    <p>Мои основные интересы: путешествовать, играть в баскетбол и шахматы. Люблю узнавать новое и постоянно развиваюсь.</p>
+                    <p>В настоящее время изучаю новые навыки, которые помогут мне найти интересную работу и реализовать свой потенциал.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="skills" class="section">
+        <div class="container">
+            <h2>Мои навыки</h2>
+            <div class="skills-container">
+                <div class="skill">
+                    <i class="fas fa-comments"></i>
+                    <h3>Коммуникабельность</h3>
+                    <p>Легко нахожу общий язык с людьми, умею слушать и понятно излагать мысли</p>
+                </div>
+                <div class="skill">
+                    <i class="fas fa-bullseye"></i>
+                    <h3>Целеустремленность</h3>
+                    <p>Ставлю цели и последовательно иду к их достижению</p>
+                </div>
+                <div class="skill">
+                    <i class="fas fa-hammer"></i>
+                    <h3>Трудолюбие</h3>
+                    <p>Готов много работать для достижения результата</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="hobbies" class="section hobbies">
+        <div class="container">
+            <h2>Мои увлечения</h2>
+            <div class="hobbies-container">
+                <div class="hobby">
+                    <i class="fas fa-plane"></i>
+                    <h3>Путешествия</h3>
+                    <p>Люблю открывать новые места, знакомиться с разными культурами и получать новые впечатления</p>
+                </div>
+                <div class="hobby">
+                    <i class="fas fa-basketball-ball"></i>
+                    <h3>Баскетбол</h3>
+                    <p>Активно играю в баскетбол, участвую в любительских турнирах</p>
+                </div>
+                <div class="hobby">
+                    <i class="fas fa-chess"></i>
+                    <h3>Шахматы</h3>
+                    <p>Играю в шахматы для развития стратегического мышления</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="section contact">
+        <div class="container">
+            <h2>Контакты</h2>
+            <div class="contact-info">
+                <p><i class="fas fa-phone"></i> 8 (901) 097-90-15</p>
+                <p><i class="fas fa-envelope"></i> godmorning223@gmail.com</p>
+                <div class="social-links">
+                    <a href="https://vk.com/lambestintheworld" target="_blank"><i class="fab fa-vk"></i></a>
+                    <a href="https://t.me/lmthebestinthevorld" target="_blank"><i class="fab fa-telegram"></i></a>
+                </div>
+            </div>
+            <form class="contact-form">
+                <input type="text" placeholder="Ваше имя" required>
+                <input type="email" placeholder="Ваш email" required>
+                <textarea placeholder="Ваше сообщение" required></textarea>
+                <button type="submit">Отправить сообщение</button>
+            </form>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2023 Егор. Все права защищены.</p>
+        </div>
+    </footer>
+</body>
+</html>
+
